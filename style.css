@@ -1,0 +1,596 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+    color: #2c7a51;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Search Section Styles */
+.search-section {
+    margin-bottom: 30px;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#location-input {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#location-input:focus {
+    border-color: #2c7a51;
+}
+
+#search-button {
+    padding: 12px 25px;
+    background-color: #2c7a51;
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+#search-button:hover {
+    background-color: #1e5a3a;
+}
+
+/* Loader Styles */
+.loader {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(44, 122, 81, 0.2);
+    border-top: 5px solid #2c7a51;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Error Message Styles */
+.error-message {
+    display: none;
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 700px;
+    border-left: 5px solid #c62828;
+}
+
+/* Results Section Styles */
+.results {
+    display: none;
+    margin-top: 30px;
+}
+
+/* Weather Card Styles */
+.weather-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.weather-card h2 {
+    color: #2c7a51;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.location {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.weather-data {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.weather-item {
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+    padding: 15px 10px;
+}
+
+.icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.weather-description {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f5f7fa;
+    border-radius: 6px;
+}
+
+.timestamp {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Recommendations Section Styles */
+.recommendations-section h2 {
+    color: #2c7a51;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.recommendations-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Crop Card Styles */
+.crop-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.crop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.crop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f5f7fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.crop-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.crop-score {
+    padding: 5px 10px;
+    color: white;
+    font-weight: 600;
+    border-radius: 30px;
+    font-size: 0.85rem;
+}
+
+.crop-content {
+    padding: 20px;
+}
+
+.crop-description {
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.crop-details {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.crop-detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.crop-detail-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.detail-value {
+    color: #333;
+}
+
+.match-indicators {
+    display: flex;
+    border-top: 1px solid #e0e0e0;
+}
+
+.match-indicator {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.85rem;
+}
+
+.indicator-icon {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.match-good {
+    color: #2c7a51;
+    background-color: rgba(44, 122, 81, 0.08);
+}
+
+.match-bad {
+    color: #c62828;
+    background-color: rgba(198, 40, 40, 0.08);
+}
+
+/* No Recommendations Styles */
+#no-recommendations {
+    background-color: #fff3e0;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-left: 5px solid #ff9800;
+}
+
+#no-recommendations p:first-child {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* View Database Section Styles */
+.view-database-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#view-database-button {
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+#view-database-button:hover {
+    background-color: #303f9f;
+}
+
+/* Crop Database Styles */
+.crop-database {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 30px;
+    display: none;
+}
+
+.crop-database h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+#close-database-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+#close-database-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#close-database-button::before {
+    content: '×';
+}
+
+#crop-database-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.crop-entry {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.crop-entry:hover {
+    transform: translateY(-5px);
+}
+
+.crop-entry h3 {
+    color: #2c7a51;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.crop-entry p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.crop-entry p:last-child {
+    margin-bottom: 0;
+}
+
+.crop-entry strong {
+    color: #555;
+}
+
+/* Improved requirements display */
+.crop-requirements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.requirement-item {
+    background-color: #f5f7fa;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    color: #777;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .search-box {
+        flex-direction: column;
+    }
+    
+    #location-input {
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    
+    #search-button {
+        border-radius: 8px;
+    }
+    
+    .weather-data {
+        flex-direction: column;
+    }
+    
+    .weather-item {
+        margin-bottom: 15px;
+    }
+    
+    .recommendations-container {
+        grid-template-columns: 1fr;
+    }
+    
+    #crop-database-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .crop-database {
+        padding: 15px;
+    }
+    
+    #close-database-button {
+        top: 10px;
+        right: 15px;
+    }
+}
+
+/* Animation for displaying database */
+.fade-in {
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.crop-database.active {
+    display: block;
+    animation: fadeIn 0.3s forwards;
+}
+
+/* Search functionality for crop database */
+.database-search {
+    max-width: 500px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.database-search input {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+}
+
+.database-search input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.database-search input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Filter buttons for crop database */
+.database-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-button:hover, .filter-button.active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* For improved readability of crop requirements */
+.req-temp, .req-humid, .req-rain {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.req-temp {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #e53935;
+}
+
+.req-humid {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #1976d2;
+}
+
+.req-rain {
+    background-color: rgba(156, 39, 176, 0.1);
+    color: #7b1fa2;
+}
