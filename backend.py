@@ -12,17 +12,21 @@ CORS(app)  # Enable CORS for all routes
 # Set this as an environment variable in production
 WEATHER_API_KEY = "1c2db9c186555007c1f77990dcfb0601"
 
-# Load crop data from JSON file
 def load_crop_data():
     file_path = os.path.join(os.path.dirname(__file__), 'database.json')  # Get absolute path
-    with open(file_path, 'r') as f:
-        data = json.load(f)
-    return data['crop_database'], data['crop_info']
+    print("Loading database from:", file_path)
+
+    try:
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+        print("Database Loaded Successfully:", data)  # Print the entire JSON data
+        return data['crop_database'], data['crop_info']
+    except Exception as e:
+        print("Error Loading JSON:", e)
+        return None, None  # Return empty data in case of error
 
 # Load the crop database and info
 crop_database, crop_info = load_crop_data()
-print("Database Path:", os.path.abspath('database.json'))
-print("File Exists:", os.path.exists('database.json'))
 
 def get_weather_data(location):
     """
