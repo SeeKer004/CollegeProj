@@ -14,7 +14,8 @@ WEATHER_API_KEY = "1c2db9c186555007c1f77990dcfb0601"
 
 # Load crop data from JSON file
 def load_crop_data():
-    with open('database.json', 'r') as f:
+    file_path = os.path.join(os.path.dirname(__file__), 'database.json')  # Get absolute path
+    with open(file_path, 'r') as f:
         data = json.load(f)
     return data['crop_database'], data['crop_info']
 
