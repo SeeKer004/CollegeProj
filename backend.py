@@ -21,6 +21,8 @@ def load_crop_data():
 
 # Load the crop database and info
 crop_database, crop_info = load_crop_data()
+print("Database Path:", os.path.abspath('database.json'))
+print("File Exists:", os.path.exists('database.json'))
 
 def get_weather_data(location):
     """
