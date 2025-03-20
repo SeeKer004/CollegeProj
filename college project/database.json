@@ -1,0 +1,426 @@
+{
+    "crop_database": {
+        "rice": {
+            "min_temp": 20,
+            "max_temp": 35,
+            "min_humidity": 60,
+            "max_humidity": 90,
+            "min_rainfall": 150,
+            "max_rainfall": 300
+        },
+        "wheat": {
+            "min_temp": 15,
+            "max_temp": 25,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 75,
+            "max_rainfall": 150
+        },
+        "maize": {
+            "min_temp": 18,
+            "max_temp": 32,
+            "min_humidity": 40,
+            "max_humidity": 80,
+            "min_rainfall": 50,
+            "max_rainfall": 200
+        },
+        "cotton": {
+            "min_temp": 20,
+            "max_temp": 40,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 60,
+            "max_rainfall": 150
+        },
+        "sugarcane": {
+            "min_temp": 20,
+            "max_temp": 38,
+            "min_humidity": 65,
+            "max_humidity": 90,
+            "min_rainfall": 150,
+            "max_rainfall": 350
+        },
+        "potatoes": {
+            "min_temp": 10,
+            "max_temp": 25,
+            "min_humidity": 50,
+            "max_humidity": 80,
+            "min_rainfall": 50,
+            "max_rainfall": 130
+        },
+        "tomatoes": {
+            "min_temp": 15,
+            "max_temp": 30,
+            "min_humidity": 40,
+            "max_humidity": 80,
+            "min_rainfall": 40,
+            "max_rainfall": 140
+        },
+        "soybeans": {
+            "min_temp": 20,
+            "max_temp": 35,
+            "min_humidity": 40,
+            "max_humidity": 80,
+            "min_rainfall": 60,
+            "max_rainfall": 170
+        },
+        "pulses": {
+            "min_temp": 18,
+            "max_temp": 30,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 60,
+            "max_rainfall": 150
+        },
+        "groundnut": {
+            "min_temp": 20,
+            "max_temp": 35,
+            "min_humidity": 40,
+            "max_humidity": 80,
+            "min_rainfall": 50,
+            "max_rainfall": 120
+        },
+        "saffron": {
+            "min_temp": 5,
+            "max_temp": 20,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 30,
+            "max_rainfall": 100
+        },
+        "barley": {
+            "min_temp": 5,
+            "max_temp": 25,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 40,
+            "max_rainfall": 120
+        },
+        "oats": {
+            "min_temp": 5,
+            "max_temp": 20,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 50,
+            "max_rainfall": 150
+        },
+        "rye": {
+            "min_temp": 3,
+            "max_temp": 17,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 40,
+            "max_rainfall": 110
+        },
+        "quinoa": {
+            "min_temp": 5,
+            "max_temp": 20,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 25,
+            "max_rainfall": 100
+        },
+        "kale": {
+            "min_temp": 4,
+            "max_temp": 25,
+            "min_humidity": 50,
+            "max_humidity": 80,
+            "min_rainfall": 40,
+            "max_rainfall": 120
+        },
+        "spinach": {
+            "min_temp": 4,
+            "max_temp": 22,
+            "min_humidity": 50,
+            "max_humidity": 80,
+            "min_rainfall": 40,
+            "max_rainfall": 120
+        },
+        "garlic": {
+            "min_temp": 5,
+            "max_temp": 25,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 30,
+            "max_rainfall": 100
+        },
+        "cabbage": {
+            "min_temp": 5,
+            "max_temp": 24,
+            "min_humidity": 50,
+            "max_humidity": 80,
+            "min_rainfall": 40,
+            "max_rainfall": 130
+        },
+        "mustard": {
+            "min_temp": 8,
+            "max_temp": 25,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 40,
+            "max_rainfall": 120
+        },
+        "sunflower": {
+            "min_temp": 15,
+            "max_temp": 30,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 50,
+            "max_rainfall": 140
+        },
+        "coffee": {
+            "min_temp": 15,
+            "max_temp": 28,
+            "min_humidity": 60,
+            "max_humidity": 85,
+            "min_rainfall": 150,
+            "max_rainfall": 300
+        },
+        "cacao": {
+            "min_temp": 18,
+            "max_temp": 32,
+            "min_humidity": 70,
+            "max_humidity": 100,
+            "min_rainfall": 150,
+            "max_rainfall": 250
+        },
+        "tea": {
+            "min_temp": 16,
+            "max_temp": 32,
+            "min_humidity": 70,
+            "max_humidity": 90,
+            "min_rainfall": 150,
+            "max_rainfall": 300
+        },
+        "ginger": {
+            "min_temp": 20,
+            "max_temp": 35,
+            "min_humidity": 70,
+            "max_humidity": 90,
+            "min_rainfall": 150,
+            "max_rainfall": 300
+        },
+        "turmeric": {
+            "min_temp": 20,
+            "max_temp": 35,
+            "min_humidity": 70,
+            "max_humidity": 90,
+            "min_rainfall": 150,
+            "max_rainfall": 250
+        },
+        "millet": {
+            "min_temp": 18,
+            "max_temp": 35,
+            "min_humidity": 40,
+            "max_humidity": 70,
+            "min_rainfall": 40,
+            "max_rainfall": 100
+        },
+        "cassava": {
+            "min_temp": 20,
+            "max_temp": 35,
+            "min_humidity": 50,
+            "max_humidity": 80,
+            "min_rainfall": 100,
+            "max_rainfall": 200
+        },
+        "sweet_potato": {
+            "min_temp": 15,
+            "max_temp": 33,
+            "min_humidity": 50,
+            "max_humidity": 80,
+            "min_rainfall": 75,
+            "max_rainfall": 150
+        },
+        "onion": {
+            "min_temp": 12,
+            "max_temp": 28,
+            "min_humidity": 50,
+            "max_humidity": 70,
+            "min_rainfall": 35,
+            "max_rainfall": 100
+        }
+    },
+    "crop_info": {
+        "rice": {
+            "description": "A staple food crop that thrives in warm, humid conditions with abundant water.",
+            "growing_period": "90-150 days",
+            "soil_type": "Clay or clay loam",
+            "water_needs": "High"
+        },
+        "wheat": {
+            "description": "One of the world's most important cereal crops, suitable for moderate temperatures.",
+            "growing_period": "100-150 days",
+            "soil_type": "Loam to clay loam",
+            "water_needs": "Moderate"
+        },
+        "maize": {
+            "description": "Also known as corn, requires moderate water and warm temperatures.",
+            "growing_period": "90-120 days",
+            "soil_type": "Well-drained loam",
+            "water_needs": "Moderate"
+        },
+        "cotton": {
+            "description": "A major source of textile fiber that grows well in warm climates.",
+            "growing_period": "150-180 days",
+            "soil_type": "Deep, well-drained loam or clay loam",
+            "water_needs": "Moderate"
+        },
+        "sugarcane": {
+            "description": "A tropical crop grown for its high sugar content.",
+            "growing_period": "9-24 months",
+            "soil_type": "Well-drained loam or clay loam",
+            "water_needs": "High"
+        },
+        "potatoes": {
+            "description": "Versatile root vegetable that grows well in cooler conditions.",
+            "growing_period": "70-120 days",
+            "soil_type": "Loose, well-drained loam",
+            "water_needs": "Moderate"
+        },
+        "tomatoes": {
+            "description": "Popular fruit vegetable that requires warm conditions and regular watering.",
+            "growing_period": "60-100 days",
+            "soil_type": "Well-drained loam",
+            "water_needs": "Moderate"
+        },
+        "soybeans": {
+            "description": "Legume crop high in protein, grows well in warm climates.",
+            "growing_period": "80-120 days",
+            "soil_type": "Well-drained loam",
+            "water_needs": "Moderate"
+        },
+        "pulses": {
+            "description": "Legumes such as lentils, chickpeas, and beans that add nitrogen to soil.",
+            "growing_period": "90-150 days",
+            "soil_type": "Well-drained loam",
+            "water_needs": "Low to moderate"
+        },
+        "groundnut": {
+            "description": "Also known as peanut, thrives in warm weather and light soil.",
+            "growing_period": "90-150 days",
+            "soil_type": "Sandy loam",
+            "water_needs": "Moderate"
+        },
+        "saffron": {
+            "description": "Highly valuable spice crop that grows well in cool, dry climates.",
+            "growing_period": "200-240 days",
+            "soil_type": "Well-drained, calcareous soil",
+            "water_needs": "Low"
+        },
+        "barley": {
+            "description": "Hardy cereal grain that can grow in colder climates and marginal soils.",
+            "growing_period": "60-100 days",
+            "soil_type": "Well-drained loam or clay loam",
+            "water_needs": "Low to moderate"
+        },
+        "oats": {
+            "description": "Cereal grain that is relatively cold-resistant and adaptable to various soils.",
+            "growing_period": "80-110 days",
+            "soil_type": "Loam soil with good drainage",
+            "water_needs": "Moderate"
+        },
+        "rye": {
+            "description": "One of the most cold-tolerant cereal grains, can grow in poor soils.",
+            "growing_period": "60-110 days",
+            "soil_type": "Sandy or loam soil",
+            "water_needs": "Low"
+        },
+        "quinoa": {
+            "description": "Andean grain crop that is highly tolerant of cold conditions and drought.",
+            "growing_period": "90-125 days",
+            "soil_type": "Well-drained sandy soil",
+            "water_needs": "Low"
+        },
+        "kale": {
+            "description": "Leafy green vegetable that tolerates frost and cold temperatures.",
+            "growing_period": "55-75 days",
+            "soil_type": "Well-drained, fertile soil",
+            "water_needs": "Moderate"
+        },
+        "spinach": {
+            "description": "Cold-resistant leafy green that grows quickly in cool conditions.",
+            "growing_period": "40-60 days",
+            "soil_type": "Fertile, well-drained soil",
+            "water_needs": "Moderate"
+        },
+        "garlic": {
+            "description": "Hardy bulb crop that requires a cold period for proper bulb development.",
+            "growing_period": "180-240 days",
+            "soil_type": "Loamy, well-drained soil",
+            "water_needs": "Low to moderate"
+        },
+        "cabbage": {
+            "description": "Cool-season vegetable that can withstand frost and light freezes.",
+            "growing_period": "80-180 days",
+            "soil_type": "Moist, well-drained soil",
+            "water_needs": "Moderate"
+        },
+        "mustard": {
+            "description": "Fast-growing crop that thrives in cool seasons and is widely cultivated for its seeds and greens.",
+            "growing_period": "40-60 days",
+            "soil_type": "Well-drained loam",
+            "water_needs": "Low to moderate"
+        },
+        "sunflower": {
+            "description": "Oil-producing crop with drought tolerance and deep taproot system.",
+            "growing_period": "70-100 days",
+            "soil_type": "Well-drained, high-fertility soil",
+            "water_needs": "Moderate"
+        },
+        "coffee": {
+            "description": "Perennial crop that produces beans used for brewing coffee, grows best in tropical highlands.",
+            "growing_period": "3-4 years to maturity, then annual harvests",
+            "soil_type": "Well-drained, rich volcanic soil",
+            "water_needs": "Moderate to high"
+        },
+        "cacao": {
+            "description": "Tropical tree crop whose seeds are used to produce chocolate, requires shade in early growth.",
+            "growing_period": "3-5 years to maturity, then annual harvests",
+            "soil_type": "Deep, well-drained loam",
+            "water_needs": "High"
+        },
+        "tea": {
+            "description": "Perennial shrub whose leaves are harvested for tea production, requires consistent moisture.",
+            "growing_period": "3 years to maturity, then regular harvests",
+            "soil_type": "Well-drained, slightly acidic soil",
+            "water_needs": "High"
+        },
+        "ginger": {
+            "description": "Tropical spice crop grown for its aromatic rhizome, prefers partial shade.",
+            "growing_period": "8-10 months",
+            "soil_type": "Rich, loose, well-drained loamy soil",
+            "water_needs": "High"
+        },
+        "turmeric": {
+            "description": "Tropical rhizome related to ginger, valued for its bright color and medicinal properties.",
+            "growing_period": "8-10 months",
+            "soil_type": "Well-drained, fertile loamy soil",
+            "water_needs": "High"
+        },
+        "millet": {
+            "description": "Drought-resistant cereal grain suitable for semi-arid regions with short growing seasons.",
+            "growing_period": "60-90 days",
+            "soil_type": "Sandy or loamy soil",
+            "water_needs": "Low"
+        },
+        "cassava": {
+            "description": "Tropical root crop with high starch content and excellent drought tolerance once established.",
+            "growing_period": "9-12 months",
+            "soil_type": "Light, sandy loam",
+            "water_needs": "Moderate"
+        },
+        "sweet_potato": {
+            "description": "Nutritious root vegetable that grows well in warm climates with minimal care.",
+            "growing_period": "90-170 days",
+            "soil_type": "Well-drained, sandy loam",
+            "water_needs": "Moderate"
+        },
+        "onion": {
+            "description": "Cool-season bulb vegetable that requires adequate sunlight and good drainage.",
+            "growing_period": "90-175 days",
+            "soil_type": "Fertile, well-drained loamy soil",
+            "water_needs": "Low to moderate"
+        }
+    }
+}

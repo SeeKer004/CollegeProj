@@ -1,0 +1,187 @@
+// DOM Elements
+const locationInput = document.getElementById('location-input');
+const searchButton = document.getElementById('search-button');
+const loader = document.getElementById('loader');
+const errorMessage = document.getElementById('error-message');
+const results = document.getElementById('results');
+const noRecommendations = document.getElementById('no-recommendations');
+const recommendationsContainer = document.getElementById('recommendations-container');
+
+// Weather display elements
+const cityElement = document.getElementById('city');
+const countryElement = document.getElementById('country');
+const temperatureElement = document.getElementById('temperature');
+const humidityElement = document.getElementById('humidity');
+const rainfallElement = document.getElementById('rainfall');
+const weatherDescElement = document.getElementById('weather-desc');
+const timestampElement = document.getElementById('timestamp');
+
+// API URL (replace with your actual backend URL if different)
+const API_BASE_URL = 'http://localhost:5000/api';
+
+// Event Listeners
+searchButton.addEventListener('click', fetchRecommendations);
+locationInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        fetchRecommendations();
+    }
+});
+
+// Check if a location is stored in localStorage and pre-fill the input
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLocation = localStorage.getItem('lastLocation');
+    if (savedLocation) {
+        locationInput.value = savedLocation;
+    }
+});
+
+// Main function to fetch crop recommendations
+async function fetchRecommendations() {
+    const location = locationInput.value.trim();
+    
+    // Validate input
+    if (!location) {
+        showError('Please enter a location');
+        return;
+    }
+    
+    // Store location in localStorage for convenience
+    localStorage.setItem('lastLocation', location);
+    
+    // Show loader, hide results and error
+    loader.style.display = 'flex';
+    results.style.display = 'none';
+    errorMessage.style.display = 'none';
+    
+    try {
+        // Fetch recommendations from API
+        const response = await fetch(`${API_BASE_URL}/recommend?location=${encodeURIComponent(location)}`);
+        const data = await response.json();
+        
+        // Hide loader
+        loader.style.display = 'none';
+        
+        // Handle API errors
+        if (data.error) {
+            showError(data.error);
+            return;
+        }
+        
+        // Display results
+        displayResults(data);
+        
+    } catch (error) {
+        console.error('Error:', error);
+        loader.style.display = 'none';
+        showError('Failed to fetch data. Please try again later.');
+    }
+}
+
+// Function to display error messages
+function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+}
+
+// Function to display weather and crop recommendations
+function displayResults(data) {
+    // Show results container
+    results.style.display = 'block';
+    
+    // Update weather information
+    const weather = data.weather;
+    cityElement.textContent = weather.location;
+    countryElement.textContent = weather.country;
+    temperatureElement.textContent = weather.temperature.toFixed(1);
+    humidityElement.textContent = weather.humidity;
+    rainfallElement.textContent = weather.rainfall;
+    weatherDescElement.textContent = weather.weather_description;
+    timestampElement.textContent = weather.timestamp;
+    
+    // Clear previous recommendations
+    recommendationsContainer.innerHTML = '';
+    
+    // Check if there are any recommendations
+    const recommendations = data.recommendations;
+    if (!recommendations || recommendations.length === 0) {
+        noRecommendations.classList.remove('hidden');
+        return;
+    }
+    
+    // Hide the "no recommendations" message
+    noRecommendations.classList.add('hidden');
+    
+    // Create and append crop recommendation cards
+    recommendations.forEach(crop => {
+        const cropCard = createCropCard(crop);
+        recommendationsContainer.appendChild(cropCard);
+    });
+}
+
+// Function to create crop recommendation card
+function createCropCard(crop) {
+    const card = document.createElement('div');
+    card.className = 'crop-card';
+    
+    // Calculate the color based on score (green to yellow gradient)
+    const scoreColor = getScoreColor(crop.score);
+    
+    // Create card content
+    card.innerHTML = `
+        <div class="crop-header">
+            <div class="crop-name">${crop.name}</div>
+            <div class="crop-score" style="background-color: ${scoreColor}">
+                ${crop.score}% Match
+            </div>
+        </div>
+        <div class="crop-content">
+            <div class="crop-description">
+                ${crop.info.description}
+            </div>
+            <div class="crop-details">
+                <div class="crop-detail-item">
+                    <div class="detail-label">Growing Period</div>
+                    <div class="detail-value">${crop.info.growing_period}</div>
+                </div>
+                <div class="crop-detail-item">
+                    <div class="detail-label">Soil Type</div>
+                    <div class="detail-value">${crop.info.soil_type}</div>
+                </div>
+                <div class="crop-detail-item">
+                    <div class="detail-label">Water Needs</div>
+                    <div class="detail-value">${crop.info.water_needs}</div>
+                </div>
+            </div>
+        </div>
+        <div class="match-indicators">
+            <div class="match-indicator ${crop.temperature_match ? 'match-good' : 'match-bad'}">
+                <span class="indicator-icon">${crop.temperature_match ? '✓' : '✗'}</span>
+                Temperature
+            </div>
+            <div class="match-indicator ${crop.humidity_match ? 'match-good' : 'match-bad'}">
+                <span class="indicator-icon">${crop.humidity_match ? '✓' : '✗'}</span>
+                Humidity
+            </div>
+            <div class="match-indicator ${crop.rainfall_match ? 'match-good' : 'match-bad'}">
+                <span class="indicator-icon">${crop.rainfall_match ? '✓' : '✗'}</span>
+                Rainfall
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+
+// Function to get color for score (green to yellow gradient)
+function getScoreColor(score) {
+    // Convert score to a color between green (#2c7a51) and yellow (#f9a825)
+    if (score >= 90) {
+        return '#2c7a51'; // Green for excellent match
+    } else if (score >= 80) {
+        return '#4caf50'; // Light green
+    } else if (score >= 70) {
+        return '#8bc34a'; // Lime green
+    } else {
+        return '#fdd835'; // Yellow for okay match
+    }
+}
