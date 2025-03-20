@@ -52,7 +52,8 @@ async function fetchCropDatabase() {
 
     try {
         // Fetch crop database from API
-        const response = await fetch(`${https://seek0.onrender.com}/crops`);
+        const response = await fetch(`${API_BASE_URL}/crops`);
+
         const data = await response.json();
 
         // Hide loader
