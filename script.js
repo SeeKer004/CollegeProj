@@ -41,6 +41,34 @@ document.addEventListener('keydown', function (event) {
         closeCropDatabase();
     }
 });
+function displayResults(data) {
+    console.log("Displaying results:", data);
+    results.style.display = 'block'; // Make results visible
+
+    // Ensure results container is empty before adding new content
+    results.innerHTML = '';
+
+    // Weather data
+    const weather = data.weather;
+    results.innerHTML += `<h3>Weather in ${weather.location}, ${weather.country}</h3>
+                          <p>Temperature: ${weather.temperature}°C</p>
+                          <p>Humidity: ${weather.humidity}%</p>
+                          <p>Rainfall: ${weather.rainfall} mm</p>
+                          <p>Description: ${weather.weather_description}</p>`;
+
+    // Crop Recommendations
+    if (data.recommendations.length > 0) {
+        results.innerHTML += `<h3>Recommended Crops:</h3><ul>`;
+        data.recommendations.forEach(crop => {
+            results.innerHTML += `<li><strong>${crop.name}</strong> - Suitability Score: ${crop.score}%<br>
+                                  <em>${crop.info.description}</em></li>`;
+        });
+        results.innerHTML += `</ul>`;
+    } else {
+        results.innerHTML += `<p>No suitable crops found for current conditions.</p>`;
+    }
+}
+
 
 // Function to fetch crop database
 async function fetchCropDatabase() {
