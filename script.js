@@ -19,7 +19,8 @@ const weatherDescElement = document.getElementById('weather-desc');
 const timestampElement = document.getElementById('timestamp');
 
 // API URL (replace with your actual backend URL if different)
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://seek0.onrender.com/api'; // Replace with actual Render URL
+
 
 // Event Listeners
 searchButton.addEventListener('click', fetchRecommendations);
