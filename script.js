@@ -233,7 +233,7 @@ async function fetchRecommendations() {
     
     try {
         // Fetch recommendations from API
-        const response = await fetch(`${API_BASE_URL}/recommend?location=${encodeURIComponent(location)}`);
+        const response = await fetch(`${API_BASE_URL}/api/recommend?location=${encodeURIComponent(location)}`);
         const data = await response.json();
         
         // Hide loader
