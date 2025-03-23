@@ -170,8 +170,12 @@ async function fetchRecommendations() {
     errorMessage.style.display = 'none';
 
     try {
-        const response = await fetch(`${API_BASE_URL}/recommend?location=${encodeURIComponent(location)}`);
+        console.log("Fetching recommendations for:", location); // Debugging step
+
+        const response = await fetch(`${API_BASE_URL}/api/recommend?location=${encodeURIComponent(location)}`);
         const data = await response.json();
+
+        console.log("Received API Response:", data); // Debugging step
 
         loader.style.display = 'none';
 
@@ -187,6 +191,7 @@ async function fetchRecommendations() {
         showError('Failed to fetch data. Please try again later.');
     }
 }
+
 
 // Function to display error messages
 function showError(message) {
