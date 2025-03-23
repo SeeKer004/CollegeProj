@@ -50,7 +50,7 @@ async function fetchCropDatabase() {
     cropDatabase.style.display = 'none';
 
     try {
-        const response = await fetch(`${API_BASE_URL}/crops`);
+        const response = await fetch(`${API_BASE_URL}/api/crops`);
         const data = await response.json();
 
         loader.style.display = 'none';
